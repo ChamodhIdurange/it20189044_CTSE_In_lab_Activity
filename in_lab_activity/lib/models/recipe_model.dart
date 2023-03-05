@@ -6,12 +6,13 @@ class Recipe {
   String description;
   String userId;
   String? passedIngredients;
-  List<String>? ingredients;
+  List<dynamic> ingredients;
 
   Recipe(
       {required this.description,
       required this.title,
       required this.userId,
+      required this.ingredients,
       this.passedIngredients,
       this.id});
 
@@ -33,6 +34,7 @@ class Recipe {
       description: data["description"],
       userId: data["userId"],
       title: data["title"],
+      ingredients: data["ingredients"],
     );
   }
 }

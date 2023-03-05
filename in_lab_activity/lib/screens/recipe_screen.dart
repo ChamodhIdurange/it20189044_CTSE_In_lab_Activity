@@ -14,7 +14,7 @@ class _RecipeListState extends State<RecipeList> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _ingredientsController = TextEditingController();
-  late final List<dynamic> defaultingredients;
+  late final List<String> defaultingredients = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,6 +71,7 @@ class _RecipeListState extends State<RecipeList> {
                             repo.createToDo(Recipe(
                                 title: _titleController.text,
                                 passedIngredients: _ingredientsController.text,
+                                ingredients: defaultingredients,
                                 userId: userRepo.getCurrentUser().uid,
                                 description: _descriptionController.text));
 
@@ -175,6 +176,8 @@ class _RecipeListState extends State<RecipeList> {
                                                     description:
                                                         _descriptionController
                                                             .text,
+                                                    ingredients:
+                                                        defaultingredients,
                                                     title:
                                                         _titleController.text,
                                                     passedIngredients:
