@@ -116,12 +116,17 @@ class _RecipeListState extends State<RecipeList> {
                           subtitle: Text(snapshot.data![index].description),
                         ),
                         SizedBox(
-                          height: 200,
+                          height: 100,
                           // child ListView
                           child: ListView.builder(
                               itemCount:
                                   snapshot.data![index].ingredients?.length,
                               itemBuilder: (_, i) => ListTile(
+                                  leading:
+                                      const Icon(Icons.all_inclusive_rounded),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 80.0,
+                                  ),
                                   title: Text(
                                       snapshot.data![index].ingredients![i]))),
                         ),

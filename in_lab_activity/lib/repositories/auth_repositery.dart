@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class UserRepositery {
+class AuthRepositery {
   final storage = FirebaseFirestore.instance;
 
   registerUser(String email, String password) async {

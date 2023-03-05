@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:in_lab_activity/repositories/to_do_repositery.dart';
-import 'package:in_lab_activity/repositories/user_repositery.dart';
+import 'package:in_lab_activity/repositories/auth_repositery.dart';
 import 'package:in_lab_activity/screens/auth_page.dart';
 import 'firebase_options.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -10,7 +10,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 final storage = FirebaseStorage.instance;
 final storageRef = FirebaseStorage.instance.ref();
 final repo = RecipeRepositery();
-final userRepo = UserRepositery();
+final userRepo = AuthRepositery();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

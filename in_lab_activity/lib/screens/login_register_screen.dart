@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../repositories/user_repositery.dart';
+import '../repositories/auth_repositery.dart';
 
 class LoginRegisterScreen extends StatefulWidget {
   const LoginRegisterScreen({super.key});
@@ -10,7 +10,7 @@ class LoginRegisterScreen extends StatefulWidget {
 }
 
 class _LoginRegisterScreenState extends State<LoginRegisterScreen> {
-  final userRepo = UserRepositery();
+  final userRepo = AuthRepositery();
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   final TextEditingController _loginemail = TextEditingController();
