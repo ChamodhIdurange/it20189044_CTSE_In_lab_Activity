@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:in_lab_activity/repositories/to_do_repositery.dart';
+import 'package:in_lab_activity/repositories/recipe_repositery.dart';
 import 'package:in_lab_activity/repositories/auth_repositery.dart';
 import 'package:in_lab_activity/screens/auth_page.dart';
 import 'firebase_options.dart';

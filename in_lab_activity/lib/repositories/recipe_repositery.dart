@@ -6,23 +6,23 @@ import '../models/recipe_model.dart';
 class RecipeRepositery {
   final _reference = FirebaseFirestore.instance.collection("RecepieList");
 
-  createToDo(Recipe recipe) async {
+  createRecipe(Recipe recipe) async {
     await _reference
         .add(recipe.toJson())
         .whenComplete(() => debugPrint('Success'));
   }
 
-  Future<List<Recipe>> getToDoList(String userId) async {
+  Future<List<Recipe>> getRecipeist(String userId) async {
     final snapshot = await _reference.where('userId', isEqualTo: userId).get();
     final list = snapshot.docs.map((e) => Recipe.fromSnapshot(e)).toList();
     return list;
   }
 
-  Future<void> completeItem(Recipe item) async {
+  Future<void> updateRecipe(Recipe item) async {
     await _reference.doc(item.id).update(item.toJson());
   }
 
-  Future<void> deleteItem(String? id) async {
+  Future<void> deleteRecipe(String? id) async {
     await _reference.doc(id).delete();
   }
 }

@@ -68,7 +68,7 @@ class _RecipeListState extends State<RecipeList> {
                             backgroundColor: Colors.blue),
                         onPressed: () {
                           setState(() {
-                            repo.createToDo(Recipe(
+                            repo.createRecipe(Recipe(
                                 title: _titleController.text,
                                 passedIngredients: _ingredientsController.text,
                                 ingredients: defaultingredients,
@@ -97,7 +97,7 @@ class _RecipeListState extends State<RecipeList> {
       ),
       // Adding a list view to the body
       body: FutureBuilder(
-        future: repo.getToDoList(userRepo.getCurrentUser().uid),
+        future: repo.getRecipeist(userRepo.getCurrentUser().uid),
         builder: (context, snapshot) {
           //Waiting to fetch data
           if (snapshot.connectionState == ConnectionState.done) {
@@ -120,7 +120,7 @@ class _RecipeListState extends State<RecipeList> {
                           // child ListView
                           child: ListView.builder(
                               itemCount:
-                                  snapshot.data![index].ingredients?.length,
+                                  snapshot.data![index].ingredients.length,
                               itemBuilder: (_, i) => ListTile(
                                   leading:
                                       const Icon(Icons.all_inclusive_rounded),
@@ -128,7 +128,7 @@ class _RecipeListState extends State<RecipeList> {
                                     horizontal: 80.0,
                                   ),
                                   title: Text(
-                                      snapshot.data![index].ingredients![i]))),
+                                      snapshot.data![index].ingredients[i]))),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -192,7 +192,7 @@ class _RecipeListState extends State<RecipeList> {
                                                         .data![index].userId);
                                                 setState(() {
                                                   // Completing the status
-                                                  repo.completeItem(
+                                                  repo.updateRecipe(
                                                       completedData);
                                                 });
                                                 //Closing the dialog
@@ -221,7 +221,7 @@ class _RecipeListState extends State<RecipeList> {
                               onPressed: () {
                                 setState(() {
                                   //Deleting an item
-                                  repo.deleteItem(snapshot.data![index].id);
+                                  repo.deleteRecipe(snapshot.data![index].id);
                                 });
                               },
                             ),
