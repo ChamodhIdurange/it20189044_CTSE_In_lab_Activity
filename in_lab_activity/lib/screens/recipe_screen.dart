@@ -19,7 +19,7 @@ class _RecipeListState extends State<RecipeList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My to do List'),
+        title: const Text('My Favourite Recipe'),
         actions: [
           IconButton(
               onPressed: userRepo.fireBaseSignOut,
@@ -68,7 +68,6 @@ class _RecipeListState extends State<RecipeList> {
                             backgroundColor: Colors.blue),
                         onPressed: () {
                           setState(() {
-                            //Adding item to the above created list
                             repo.createToDo(Recipe(
                                 title: _titleController.text,
                                 passedIngredients: _ingredientsController.text,
@@ -77,7 +76,6 @@ class _RecipeListState extends State<RecipeList> {
 
                             _titleController.text = '';
                           });
-                          //Closing the dialog
                           Navigator.of(content).pop();
                         },
                         child: const Text('Enter'),
@@ -116,6 +114,18 @@ class _RecipeListState extends State<RecipeList> {
                           title: Text(snapshot.data![index].title),
                           subtitle: Text(snapshot.data![index].description),
                         ),
+                        ListView.builder(
+                            scrollDirection: Axis.vertical,
+                            shrinkWrap: true,
+                            itemCount: 5,
+                            itemBuilder: (BuildContext context, int index) {
+                              const Text('sasd');
+                              const Text('sasd');
+                              const Text('sasd');
+                              const Text('sasd');
+                              const Text('sasd');
+                              const Text('sasd');
+                            }),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
